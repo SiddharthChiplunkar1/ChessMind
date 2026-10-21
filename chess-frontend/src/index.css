@@ -1,0 +1,172 @@
+/* ════════════════════════════════════════════════════════
+   ChessMind — Global Design System
+   Dark, premium, chess.com-inspired aesthetic
+   ════════════════════════════════════════════════════════ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg-primary:     #1a1a1a;
+  --bg-secondary:   #242424;
+  --bg-tertiary:    #2d2d2d;
+  --bg-card:        #1e1e1e;
+
+  --accent-green:   #7fa650;
+  --accent-green-light: #9dc162;
+  --accent-gold:    #c9a84c;
+  --accent-gold-light: #e2c36a;
+  --accent-red:     #c0392b;
+  --accent-blue:    #4a90d9;
+
+  --tile-light:     #f0d9b5;
+  --tile-dark: #779556;
+  --tile-highlight: rgba(255, 255, 0, 0.4);
+  --tile-select: rgba(20, 85, 30, 0.5);
+
+  --text-primary:   #e8e8e8;
+  --text-secondary: #a0a0a0;
+  --text-muted:     #606060;
+
+  --border-subtle:  rgba(255,255,255,0.06);
+  --border-card:    rgba(255,255,255,0.1);
+
+  --shadow-card:    0 8px 32px rgba(0,0,0,0.5);
+  --shadow-board:   0 20px 60px rgba(0,0,0,0.7);
+  --shadow-piece:   0 4px 12px rgba(0,0,0,0.6);
+
+  --radius-sm:  6px;
+  --radius-md:  12px;
+  --radius-lg:  18px;
+  --radius-xl:  24px;
+
+  --transition: 0.18s ease;
+  --transition-slow: 0.35s ease;
+
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-display: 'Playfair Display', Georgia, serif;
+}
+
+body[data-theme="wood"] {
+  --tile-light: #f0d9b5;
+  --tile-dark: #b58863;
+}
+body[data-theme="ocean"] {
+  --tile-light: #d6e2e9;
+  --tile-dark: #4a6fa5;
+}
+body[data-theme="slate"] {
+  --tile-light: #c0c0c0;
+  --tile-dark: #6a6a6a;
+}
+
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Scrollbar ──────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb { background: #444; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #555; }
+
+/* ── Utility classes ───────────────────────────────── */
+.glass {
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border-card);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: var(--radius-sm);
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  transition: all var(--transition);
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: var(--accent-green);
+  color: #fff;
+}
+.btn-primary:hover {
+  background: var(--accent-green-light);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(127,166,80,0.35);
+}
+
+.btn-secondary {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-card);
+}
+.btn-secondary:hover {
+  background: #383838;
+  transform: translateY(-1px);
+}
+
+.btn-danger {
+  background: var(--accent-red);
+  color: #fff;
+}
+.btn-danger:hover {
+  background: #e74c3c;
+  transform: translateY(-1px);
+}
+
+.btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ── Animations ────────────────────────────────────── */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(127,166,80,0.4); }
+  50%       { box-shadow: 0 0 0 8px rgba(127,166,80,0); }
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes checkShake {
+  0%, 100% { transform: translateX(0); }
+  20%       { transform: translateX(-6px); }
+  40%       { transform: translateX(6px); }
+  60%       { transform: translateX(-4px); }
+  80%       { transform: translateX(4px); }
+}
+
+.animate-fadein { animation: fadeIn 0.4s ease forwards; }
+.animate-pulse-glow { animation: pulse-glow 2s infinite; }
+.animate-shake { animation: checkShake 0.45s ease; }

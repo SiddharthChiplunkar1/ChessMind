@@ -1,0 +1,118 @@
+.chess-tile {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+  transition: filter 0.12s ease;
+  aspect-ratio: 1;
+}
+
+.chess-tile:hover {
+  filter: brightness(1.12);
+}
+
+/* ── Tile colours ─────────────────────────────────── */
+.tile-light { background-color: var(--tile-light); }
+.tile-dark  { background-color: var(--tile-dark); }
+
+/* ── Highlight overlays ───────────────────────────── */
+.tile-selected {
+  background-color: rgba(20, 85, 30, 0.55) !important;
+}
+.tile-legal {
+  /* dot overlay handled by .legal-indicator */
+}
+.tile-lastmove {
+  background-color: var(--tile-lastmove) !important;
+}
+.tile-check {
+  background-color: rgba(220, 50, 50, 0.65) !important;
+}
+
+/* ── Legal move indicators ────────────────────────── */
+.legal-indicator {
+  position: absolute;
+  pointer-events: none;
+  z-index: 2;
+  border-radius: 50%;
+}
+.legal-move {
+  width: 32%;
+  height: 32%;
+  background: rgba(0, 0, 0, 0.25);
+}
+.legal-capture {
+  width: 90%;
+  height: 90%;
+  border: 7px solid rgba(0, 0, 0, 0.25);
+  background: transparent;
+}
+
+/* ── Pieces ───────────────────────────────────────── */
+.piece {
+  position: relative;
+  z-index: 3;
+  font-size: clamp(20px, 5.5vw, 56px);
+  line-height: 1;
+  transition: transform 0.12s ease, filter 0.12s ease;
+  display: block;
+  filter: drop-shadow(0 3px 6px rgba(0,0,0,0.6));
+}
+.piece-white {
+  color: #fff;
+  text-shadow:
+    -1px -1px 0 #2a1500,
+     1px -1px 0 #2a1500,
+    -1px  1px 0 #2a1500,
+     1px  1px 0 #2a1500,
+    0 0 8px rgba(0,0,0,0.7);
+}
+.piece-black {
+  color: #1a1a1a;
+  text-shadow:
+    -1px -1px 0 #888,
+     1px -1px 0 #888,
+    -1px  1px 0 #888,
+     1px  1px 0 #888;
+}
+.piece-selected {
+  transform: scale(1.15);
+  filter: drop-shadow(0 6px 16px rgba(0,0,0,0.8));
+}
+.chess-tile:hover .piece {
+  transform: scale(1.08);
+}
+.chess-tile:hover .piece-selected {
+  transform: scale(1.15);
+}
+
+/* ── Coordinate labels ────────────────────────────── */
+.tile-rank-label {
+  position: absolute;
+  top: 3px;
+  left: 4px;
+  font-size: clamp(8px, 1.2vw, 13px);
+  font-weight: 700;
+  line-height: 1;
+  pointer-events: none;
+  z-index: 5;
+  opacity: 0.75;
+}
+.tile-file-label {
+  position: absolute;
+  bottom: 3px;
+  right: 4px;
+  font-size: clamp(8px, 1.2vw, 13px);
+  font-weight: 700;
+  line-height: 1;
+  pointer-events: none;
+  z-index: 5;
+  opacity: 0.75;
+}
+/* Dark tile labels are lighter, light tile labels are darker */
+.tile-light .tile-rank-label,
+.tile-light .tile-file-label { color: var(--tile-dark); }
+.tile-dark  .tile-rank-label,
+.tile-dark  .tile-file-label { color: var(--tile-light); }

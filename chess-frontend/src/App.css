@@ -1,0 +1,273 @@
+/* ════════════════════════════════════════════════════════
+   App Layout — Landing + Game screens
+   ════════════════════════════════════════════════════════ */
+
+/* ── Landing ──────────────────────────────────────────── */
+.landing {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.landing-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(127,166,80,0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 80% 80%, rgba(201,168,76,0.08) 0%, transparent 50%),
+    var(--bg-primary);
+}
+
+.landing-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 560px;
+  padding: 40px 24px;
+}
+
+.landing-logo {
+  font-size: 72px;
+  line-height: 1;
+  margin-bottom: 16px;
+  filter: drop-shadow(0 8px 24px rgba(127,166,80,0.4));
+}
+
+.landing-title {
+  font-family: var(--font-display);
+  font-size: clamp(44px, 8vw, 72px);
+  font-weight: 900;
+  background: linear-gradient(135deg, #e8e8e8 0%, var(--accent-green-light) 50%, var(--accent-gold-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 16px;
+  line-height: 1.1;
+}
+
+.landing-subtitle {
+  font-size: 17px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 28px;
+  font-weight: 400;
+}
+
+.landing-features {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 36px;
+}
+.feature-chip {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid var(--border-card);
+  border-radius: 100px;
+  padding: 6px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.landing-modes {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+.landing-btn {
+  padding: 15px 32px;
+  font-size: 16px;
+  border-radius: var(--radius-md);
+  min-width: 180px;
+}
+
+.landing-hint {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 12px;
+}
+.landing-hint code {
+  background: var(--bg-tertiary);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 12px;
+  color: var(--accent-green-light);
+}
+
+/* ── App shell ────────────────────────────────────────── */
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 60% 40% at 50% 0%, rgba(127,166,80,0.06) 0%, transparent 55%),
+    var(--bg-primary);
+}
+
+/* ── Header ───────────────────────────────────────────── */
+.app-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 0 24px;
+  height: 56px;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-subtle);
+  flex-shrink: 0;
+  z-index: 10;
+}
+
+.header-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  text-decoration: none;
+}
+.header-icon {
+  font-size: 24px;
+  filter: drop-shadow(0 2px 6px rgba(127,166,80,0.4));
+}
+.header-title {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 900;
+  background: linear-gradient(135deg, #e8e8e8, var(--accent-green-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.header-status {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.turn-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+.white-turn { background: #f0f0f0; box-shadow: 0 0 8px rgba(240,240,240,0.5); }
+.black-turn { background: #555; box-shadow: 0 0 8px rgba(0,0,0,0.5); }
+.turn-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+.header-check-badge {
+  background: var(--accent-red);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+.status-chip {
+  padding: 5px 14px;
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 700;
+}
+.chip-checkmate { background: rgba(192,57,43,0.2); color: #e74c3c; border: 1px solid rgba(192,57,43,0.4); }
+.chip-stalemate { background: rgba(74,111,165,0.2); color: var(--accent-blue); border: 1px solid rgba(74,111,165,0.4); }
+
+.header-home-btn {
+  font-size: 13px;
+  padding: 7px 14px;
+}
+
+/* ── Main layout ──────────────────────────────────────── */
+.app-main {
+  display: grid;
+  grid-template-columns: 220px 1fr 220px;
+  gap: 16px;
+  flex: 1;
+  min-height: 0;
+  padding: 16px;
+  overflow: hidden;
+}
+
+/* ── Sidebars ─────────────────────────────────────────── */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 0;
+  overflow: hidden;
+}
+.sidebar-right {
+  overflow: hidden;
+}
+
+/* ── Board column ─────────────────────────────────────── */
+.board-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  min-height: 0;
+  justify-content: center;
+}
+
+/* ── Error states ─────────────────────────────────────── */
+.error-msg {
+  margin-top: 12px;
+  color: var(--accent-red);
+  font-size: 14px;
+  font-weight: 500;
+}
+.error-banner {
+  width: 100%;
+  max-width: 580px;
+  background: rgba(192,57,43,0.15);
+  border: 1px solid rgba(192,57,43,0.3);
+  border-radius: var(--radius-sm);
+  padding: 10px 16px;
+  font-size: 13px;
+  color: #e74c3c;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.error-dismiss {
+  font-size: 16px;
+  opacity: 0.7;
+  margin-left: 8px;
+}
+
+/* ── Responsive ───────────────────────────────────────── */
+@media (max-width: 1100px) {
+  .app-main {
+    grid-template-columns: 180px 1fr 180px;
+    gap: 10px;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 800px) {
+  .app-main {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+    overflow-y: auto;
+  }
+  .sidebar-left {
+    order: 2;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .board-column { order: 1; }
+  .sidebar-right { order: 3; max-height: 240px; }
+}

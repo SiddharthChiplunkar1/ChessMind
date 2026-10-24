@@ -1,0 +1,115 @@
+.move-history {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  flex: 1;
+  min-height: 0;
+}
+
+.move-history-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: var(--bg-tertiary);
+  border-bottom: 1px solid var(--border-subtle);
+  flex-shrink: 0;
+}
+
+.move-history-title {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.move-history-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.move-count {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.export-btn {
+  background: transparent;
+  border: 1px solid var(--border-subtle);
+  border-radius: 4px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 2px 6px;
+  font-size: 12px;
+  transition: all var(--transition);
+}
+.export-btn:hover {
+  background: var(--accent-green);
+  color: #fff;
+  border-color: var(--accent-green);
+}
+
+.move-history-body {
+  overflow-y: auto;
+  flex: 1;
+  padding: 8px 4px;
+}
+
+.move-history-empty {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 13px;
+  padding: 24px 16px;
+  font-style: italic;
+}
+
+.move-pair {
+  display: grid;
+  grid-template-columns: 32px 1fr 1fr;
+  gap: 0;
+  align-items: center;
+  border-radius: 4px;
+  transition: background var(--transition);
+}
+.move-pair:hover {
+  background: rgba(255,255,255,0.04);
+}
+
+.move-number {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-weight: 600;
+  text-align: right;
+  padding: 5px 8px 5px 8px;
+}
+
+.move-white,
+.move-black {
+  font-size: 13px;
+  font-weight: 500;
+  padding: 5px 10px;
+  border-radius: 3px;
+  cursor: default;
+  font-family: 'Courier New', monospace;
+  letter-spacing: 0.3px;
+}
+
+.move-white {
+  color: var(--text-primary);
+}
+
+.move-black {
+  color: var(--text-secondary);
+}
+
+.move-pair:last-child .move-white,
+.move-pair:last-child .move-black {
+  font-weight: 700;
+  color: var(--accent-green-light);
+}

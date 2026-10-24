@@ -1,0 +1,191 @@
+.game-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+}
+
+.controls-header {
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+.controls-title {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--text-secondary);
+}
+
+/* ── Control rows ────────────────────────────────── */
+.control-row {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.control-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+/* ── Mode toggle ─────────────────────────────────── */
+.mode-toggle {
+  display: flex;
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-sm);
+  padding: 3px;
+  gap: 3px;
+}
+.mode-btn {
+  flex: 1;
+  padding: 8px 6px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: var(--font-body);
+  background: transparent;
+  color: var(--text-secondary);
+  transition: all var(--transition);
+}
+.mode-btn:hover:not(:disabled) {
+  background: rgba(255,255,255,0.06);
+  color: var(--text-primary);
+}
+.mode-btn.mode-active {
+  background: var(--accent-green);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(127,166,80,0.35);
+}
+.mode-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* ── AI Difficulty Slider ────────────────────────── */
+.ai-difficulty {
+  margin-top: 4px;
+  padding: 10px;
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-subtle);
+}
+.depth-value {
+  color: var(--accent-green-light);
+  font-weight: 700;
+}
+.depth-slider {
+  width: 100%;
+  margin: 6px 0;
+  accent-color: var(--accent-green);
+  cursor: pointer;
+}
+.depth-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+/* ── Theme Selector ──────────────────────────────── */
+.theme-select {
+  width: 100%;
+  padding: 8px 12px;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  font-size: 13px;
+  font-weight: 600;
+  font-family: var(--font-body);
+  cursor: pointer;
+  outline: none;
+  transition: all var(--transition);
+}
+.theme-select:hover, .theme-select:focus {
+  border-color: var(--accent-green);
+  color: var(--text-primary);
+}
+
+/* ── Action buttons ──────────────────────────────── */
+.control-action-btn {
+  flex: 1;
+  width: 100%;
+  padding: 11px 14px;
+  font-size: 14px;
+}
+.control-row:has(.control-action-btn) {
+  flex-direction: row;
+  gap: 8px;
+}
+
+/* ── Toggle group ────────────────────────────────── */
+.toggle-group {
+  display: flex;
+  gap: 8px;
+}
+.toggle-btn {
+  flex: 1;
+  padding: 8px 10px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-card);
+  background: var(--bg-tertiary);
+  color: var(--text-secondary);
+  font-size: 13px;
+  font-weight: 600;
+  font-family: var(--font-body);
+  cursor: pointer;
+  transition: all var(--transition);
+}
+.toggle-btn:hover {
+  background: #3a3a3a;
+  color: var(--text-primary);
+}
+.toggle-btn.toggle-on {
+  background: rgba(127, 166, 80, 0.15);
+  border-color: var(--accent-green);
+  color: var(--accent-green-light);
+}
+
+/* ── Spinner ─────────────────────────────────────── */
+.spinner {
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+/* ── Game ID chip ────────────────────────────────── */
+.game-id-chip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 12px;
+  background: rgba(127,166,80,0.08);
+  border: 1px solid rgba(127,166,80,0.2);
+  border-radius: var(--radius-sm);
+  margin-top: 2px;
+}
+.chip-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent-green);
+  flex-shrink: 0;
+  animation: pulse-glow 2s infinite;
+}
+.chip-text {
+  font-size: 12px;
+  color: var(--accent-green-light);
+  font-weight: 600;
+}

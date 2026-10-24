@@ -1,0 +1,109 @@
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.modal-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-xl);
+  padding: 40px 36px;
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.8);
+}
+
+/* ── Icon ────────────────────────────────────────── */
+.modal-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  margin: 0 auto 20px;
+  line-height: 1;
+}
+.icon-white {
+  background: radial-gradient(circle, #f0d9b5, #d4b896);
+  color: #1a1a1a;
+  box-shadow: 0 8px 24px rgba(240,217,181,0.3);
+}
+.icon-black {
+  background: radial-gradient(circle, #4a4a4a, #2a2a2a);
+  color: #e8e8e8;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+}
+.icon-draw {
+  background: radial-gradient(circle, #4a6fa5, #2d4a75);
+  color: #fff;
+  font-size: 36px;
+  font-weight: 900;
+  box-shadow: 0 8px 24px rgba(74,111,165,0.3);
+}
+
+/* ── Text ────────────────────────────────────────── */
+.modal-title {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 900;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+  line-height: 1.2;
+}
+.modal-subtitle {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--accent-gold-light);
+  margin-bottom: 20px;
+}
+
+/* ── Stat ────────────────────────────────────────── */
+.modal-stat {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 20px;
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-sm);
+  margin-bottom: 16px;
+}
+.stat-label {
+  font-size: 13px;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+.stat-value {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--accent-green-light);
+}
+
+/* ── Description ─────────────────────────────────── */
+.modal-description {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 28px;
+}
+
+/* ── Actions ─────────────────────────────────────── */
+.modal-actions {
+  display: flex;
+  gap: 12px;
+}
+.modal-actions .btn {
+  flex: 1;
+  padding: 13px;
+  font-size: 15px;
+}
